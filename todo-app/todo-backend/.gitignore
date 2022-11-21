@@ -63,3 +63,4 @@ typings/
 .docker-compose.dev.yml
 .docker-compose.yml
 mongo_data
+redis_data

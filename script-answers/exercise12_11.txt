@@ -1,0 +1,14 @@
+I wasn't able to record the script because it's possible only in bash (I think). 
+Whereas I was using redis-cli like this: 
+
+docker exec -it todo-backend-redis-1 redis-cli
+127.0.0.1:6379> GET todoCount
+"11"
+127.0.0.1:6379> SET todoCount 9001
+OK
+// After this step I confirmed the setting of todoCount to 9001 via browser (http://localhost:3000/statistics)
+// And then I created a new todo, and saw todoCount at that address to get up to "9002"
+127.0.0.1:6379> DEL todoCount
+(integer) 1
+127.0.0.1:6379> GET todoCount
+(nil)

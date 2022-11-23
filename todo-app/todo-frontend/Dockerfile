@@ -1,4 +1,14 @@
-FROM node:16 AS build-stage
+FROM node:16 AS test-stage
+
+WORKDIR /usr/src/app
+
+COPY . .
+
+RUN npm ci
+
+RUN CI=true npm test
+
+FROM test-stage AS build-stage
 
 WORKDIR /usr/src/app
 
@@ -10,8 +20,4 @@ RUN npm run build
 
 RUN npm install -g serve
 
-RUN npm run test
-
 CMD ["serve", "build"]
-CMD ['npm', 'run', 'test']
-

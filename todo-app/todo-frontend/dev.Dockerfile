@@ -1,11 +1,8 @@
 FROM node:16
-
-WORKDIR /usr/src/app
-
-COPY . .
-
-# Change npm ci to npm install since we are going to be in development mode
+WORKDIR /app
+COPY package.json .
 RUN npm install
-
-# npm start is the command to start the application in development mode
+COPY . .
+ENV REACT_APP_NAME=myName
+EXPOSE 3000
 CMD ["npm", "start"]

@@ -25,7 +25,7 @@ services:
       context: .
       dockerfile: dev.Dockerfile
     volumes:
-      - ./:/usr/src/app
+      - ./:/app/src/
     ports:
       - 3000:3000
     environment:

@@ -1,23 +1,16 @@
 FROM node:16 AS test-stage
-
-WORKDIR /usr/src/app
-
-COPY . .
-
+WORKDIR /app
+COPY package.json .
+COPY package-lock.json .
 RUN npm ci
-
+COPY . .
 RUN CI=true npm test
-
 FROM test-stage AS build-stage
-
-WORKDIR /usr/src/app
-
-COPY . .
-
+WORKDIR /app
+COPY package.json .
+COPY package-lock.json .
 RUN npm ci
-
+COPY . .
 RUN npm run build
-
 RUN npm install -g serve
-
 CMD ["serve", "build"]

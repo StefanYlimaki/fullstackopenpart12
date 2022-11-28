@@ -16,7 +16,6 @@ import Blog from './components/Blog'
 
 import { Container, Button } from '@mui/material'
 
-
 const getUser = () => {
   let user = null
   const loadedState = loadState()
@@ -37,8 +36,6 @@ const App = () => {
     dispatch(initializeBlogs())
     dispatch(initializeUsers())
   }, [dispatch])
-
-
 
   const logOut = () => {
     dispatch(setNotification(`Goodbye ${user.name}!`, 3))

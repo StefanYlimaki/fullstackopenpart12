@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { loadState } from '../stateLoader'
-const baseUrl = '/api/blogs'
+const baseUrl = 'http://localhost:3003/api/blogs'
 
 const refreshToken = () => {
   let user = null
